@@ -16,7 +16,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     with open('obunachilar.txt', 'a') as f:
         f.write(" {}".format(res))
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text("")
+    salom = f'Videoni to`liq ko`ring {update.effective_user.first_name}'
+    video = open('qollanma.mp4', 'rb')
+    await update.message.reply_video(video=video, caption=salom)
 counter = 0
 async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
     hijri_months = [
@@ -112,7 +114,8 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         'salom':'Assalomu alaykum',
         'Salom':'Assalomu alaykum',
         'Assalomu alaykum ' : 'Va aleykum assalom',
-        'Va aleykum assalom ' : 'Ahvollaringzi qanday',
+        'Va aleykum assalom ' : 'Zakaz bermoqchi bo`lsangiz /yordam tugmasini bosing',
+        'va aleykum assalom ' : 'Zakaz bermoqchi bo`lsangiz /yordam tugmasini bosing',
         'va aleykum assalom va rahmatullohi va barakatuh':'Ahvollaringiz yaxshimi',
         'Va aleykum assalom va rahmatullohi va barakatuh':'Ahvollaringiz yaxshimi',
         'Ishlaringiz yahshimi':'Ha yaxshi qanday zakazingiz bor',
