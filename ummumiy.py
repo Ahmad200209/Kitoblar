@@ -52,7 +52,7 @@ async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
     }
     hozir = datetime.now()
     hafta = hafta_kunlari[hozir.strftime('%A')]
-    son = '@Onhayat_kitoblar'
+    son = '@Onxayat_kitoblar'
     sanoq = 0
     if hafta == 'Juma':
         sanoq += 1
@@ -90,7 +90,7 @@ async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
 sanoq1 = 0
 sanoq2 = 0
 async def salok1(context: ContextTypes.DEFAULT_TYPE) -> None:
-    son = '@Onhayat_kitoblar'
+    son = '@Onxayat_kitoblar'
     global sanoq1
     global sanoq2
     sanoq1 += 1
@@ -266,8 +266,8 @@ async def namoz_vaqti(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 def main() -> None:
     application = Application.builder().token(token).build()
     tashkent_tz = pytz.timezone('Asia/Tashkent')
-    target_time1 = tashkent_tz.localize(datetime.combine(datetime.today(), time(hour=8, minute=0)))
-    target_time2 = tashkent_tz.localize(datetime.combine(datetime.today(), time(hour=5, minute=0)))
+    target_time1 = tashkent_tz.localize(datetime.combine(datetime.today(), time(hour=5, minute=00)))
+    target_time2 = tashkent_tz.localize(datetime.combine(datetime.today(), time(hour=8, minute=00)))
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("namoz", namoz_vaqti))
     application.add_handler(CommandHandler("reklama2002", rek))
