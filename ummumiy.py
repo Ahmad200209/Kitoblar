@@ -59,31 +59,52 @@ async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
         jumatext = 'Juma ayyomingiz muborak bo`lsin. Alloh bu kunda qiladigan ammalllaringini o`z dargohida qabul etsin\n🤲🤲🤲Omiyn! \n\n https://t.me/Onxayat_kitoblar'
         with open('jumatabrik/juma{}.jpg'.format(sanoq), 'rb') as photo:
             await context.bot.send_photo(son, photo=photo, caption=jumatext)
+        kun = hozir.day
+        oy = oylar[hozir.strftime('%B')]
+        yil = hozir.year
+        global counter
+        counter += 1
+        gregorian_date = hozir
+        hijri_date = convert.Gregorian(gregorian_date.year, gregorian_date.month, gregorian_date.day).to_hijri()
+        salomlash = f"👋Assalomu alaykum va rahmatullohi va barakatuh \nKitob do`konimizning qadrli a`zolari \n📚📚📚Allox sizning bugungi kuningizni mutoalaga boy qilsin ..!!! \nOmiyn.\nBugun haftaning {hafta} kuni {kun}- {oy} {yil}-yil\nHijriy: {hijri_date.day} - {hijri_months[hijri_date.month - 1]} {hijri_date.year}-yil\n👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻\nBizning rasmiy manzilimiz: https://t.me/Onxayat_kitoblar"
+        with open('salom/salom{}.jpg'.format(counter), 'rb') as photo1:
+            await context.bot.send_photo(son, photo=photo1, caption=salomlash)
+        with open('namoz/namoz1.jpg', 'rb') as photo:
+            await context.bot.send_photo(son, photo=photo, caption="✅Namoz vaqti \n\n 🤲🤲🤲 Namozni o`z vaqtida muxofaza qiluvchilarga jannat bo`lsin! \n 🕌🕌🕌O'nhayat masjidi namoz Vaqtlari \n\n https://t.me/Onxayat_kitoblar")
+        with open("textlar/izoh{}.txt".format(counter), "r", encoding="utf-8") as file:
+            line = file.readlines()
+            izoh1= line[0].strip()
+            izoh2= line[1].strip()
+            izoh3= line[2].strip()
+            izoh4= line[3].strip()
+            izohtext = f"{izoh1}\n🖋🖋🖋{izoh2}\n\n📚📚📚{izoh4}\n\n👉{izoh3}\nBuyurtma qilish uchun https://t.me/Zakaz_murojatbot\n\nBizga qo`shiling va kitobxonlardan bo`ling https://t.me/Onxayat_kitoblar"
+        with open('rasmlar/rasm{}.jpg'.format(counter), 'rb') as photo:
+            await context.bot.send_photo(son, photo=photo, caption=izohtext)
         if sanoq > 10:
             sanoq = 0
         return sanoq
-        
-    kun = hozir.day
-    oy = oylar[hozir.strftime('%B')]
-    yil = hozir.year
-    global counter
-    counter += 1
-    gregorian_date = hozir
-    hijri_date = convert.Gregorian(gregorian_date.year, gregorian_date.month, gregorian_date.day).to_hijri()
-    salomlash = f"👋Assalomu alaykum va rahmatullohi va barakatuh \nKitob do`konimizning qadrli a`zolari \n📚📚📚Allox sizning bugungi kuningizni mutoalaga boy qilsin ..!!! \nOmiyn.\nBugun haftaning {hafta} kuni {kun}- {oy} {yil}-yil\nHijriy: {hijri_date.day} - {hijri_months[hijri_date.month - 1]} {hijri_date.year}-yil\n👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻\nBizning rasmiy manzilimiz: https://t.me/Onxayat_kitoblar"
-    with open('salom/salom{}.jpg'.format(counter), 'rb') as photo1:
-        await context.bot.send_photo(son, photo=photo1, caption=salomlash)
-    with open('namoz/namoz1.jpg', 'rb') as photo:
-        await context.bot.send_photo(son, photo=photo, caption="✅Namoz vaqti \n\n 🤲🤲🤲 Namozni o`z vaqtida muxofaza qiluvchilarga jannat bo`lsin! \n 🕌🕌🕌O'nhayat masjidi namoz Vaqtlari \n\n https://t.me/Onxayat_kitoblar")
-    with open("textlar/izoh{}.txt".format(counter), "r", encoding="utf-8") as file:
-        line = file.readlines()
-        izoh1= line[0].strip()
-        izoh2= line[1].strip()
-        izoh3= line[2].strip()
-        izoh4= line[3].strip()
-        izohtext = f"{izoh1}\n🖋🖋🖋{izoh2}\n\n📚📚📚{izoh4}\n\n👉{izoh3}\nBuyurtma qilish uchun https://t.me/Zakaz_murojatbot\n\nBizga qo`shiling va kitobxonlardan bo`ling https://t.me/Onxayat_kitoblar"
-    with open('rasmlar/rasm{}.jpg'.format(counter), 'rb') as photo:
-        await context.bot.send_photo(son, photo=photo, caption=izohtext)
+    else:
+        kun = hozir.day
+        oy = oylar[hozir.strftime('%B')]
+        yil = hozir.year
+        global counter
+        counter += 1
+        gregorian_date = hozir
+        hijri_date = convert.Gregorian(gregorian_date.year, gregorian_date.month, gregorian_date.day).to_hijri()
+        salomlash = f"👋Assalomu alaykum va rahmatullohi va barakatuh \nKitob do`konimizning qadrli a`zolari \n📚📚📚Allox sizning bugungi kuningizni mutoalaga boy qilsin ..!!! \nOmiyn.\nBugun haftaning {hafta} kuni {kun}- {oy} {yil}-yil\nHijriy: {hijri_date.day} - {hijri_months[hijri_date.month - 1]} {hijri_date.year}-yil\n👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻\nBizning rasmiy manzilimiz: https://t.me/Onxayat_kitoblar"
+        with open('salom/salom{}.jpg'.format(counter), 'rb') as photo1:
+            await context.bot.send_photo(son, photo=photo1, caption=salomlash)
+        with open('namoz/namoz1.jpg', 'rb') as photo:
+            await context.bot.send_photo(son, photo=photo, caption="✅Namoz vaqti \n\n 🤲🤲🤲 Namozni o`z vaqtida muxofaza qiluvchilarga jannat bo`lsin! \n 🕌🕌🕌O'nhayat masjidi namoz Vaqtlari \n\n https://t.me/Onxayat_kitoblar")
+        with open("textlar/izoh{}.txt".format(counter), "r", encoding="utf-8") as file:
+            line = file.readlines()
+            izoh1= line[0].strip()
+            izoh2= line[1].strip()
+            izoh3= line[2].strip()
+            izoh4= line[3].strip()
+            izohtext = f"{izoh1}\n🖋🖋🖋{izoh2}\n\n📚📚📚{izoh4}\n\n👉{izoh3}\nBuyurtma qilish uchun https://t.me/Zakaz_murojatbot\n\nBizga qo`shiling va kitobxonlardan bo`ling https://t.me/Onxayat_kitoblar"
+        with open('rasmlar/rasm{}.jpg'.format(counter), 'rb') as photo:
+            await context.bot.send_photo(son, photo=photo, caption=izohtext)
     if counter > 29:
         counter = 0
     return counter
@@ -107,7 +128,18 @@ async def salok1(context: ContextTypes.DEFAULT_TYPE) -> None:
     if sanoq2 > 200:
         sanoq2 = 0
         return sanoq2
-    
+tunsanoq = 0 
+async def salok2(context: ContextTypes.DEFAULT_TYPE) -> None:
+    son = '@Onxayat_kitoblar'
+    global tunsanoq
+    tunsanoq +=1
+    yozuv ="Kanalimizning hurmatli foydalanuvchialri bugungi tuningiz osuda o`tsin"
+    with open('tun/tun{}.jpg'.format(tunsanoq), 'rb') as hikmat:
+        yozuv1 = f"{yozuv}\n\nBizga qo`shiling va kitobxonlardan bo`ling https://t.me/Onxayat_kitoblar"
+    await context.bot.send_photo(son, photo=hikmat, caption=yozuv1)
+    if sanoq2 > 13:
+        sanoq2 = 0
+    return sanoq2
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     salom = update.message.text 
     kir = {
@@ -268,6 +300,7 @@ def main() -> None:
     tashkent_tz = pytz.timezone('Asia/Tashkent')
     target_time1 = tashkent_tz.localize(datetime.combine(datetime.today(), time(hour=5, minute=00)))
     target_time2 = tashkent_tz.localize(datetime.combine(datetime.today(), time(hour=8, minute=00)))
+    target_time3 = tashkent_tz.localize(datetime.combine(datetime.today(), time(hour=22, minute=00)))
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("namoz", namoz_vaqti))
     application.add_handler(CommandHandler("reklama2002", rek))
@@ -278,6 +311,7 @@ def main() -> None:
     jon = application.job_queue
     jon.run_daily(salok, target_time1)
     jon.run_daily(salok1, target_time2)
+    jon.run_daily(salok2, target_time3)
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
     
