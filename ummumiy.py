@@ -54,6 +54,8 @@ async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
     hafta = hafta_kunlari[hozir.strftime('%A')]
     son = '@Onxayat_kitoblar'
     sanoq = 0
+    global counter
+    counter += 1
     if hafta == 'Juma':
         sanoq += 1
         jumatext = 'Juma ayyomingiz muborak bo`lsin. Alloh bu kunda qiladigan ammalllaringini o`z dargohida qabul etsin\n🤲🤲🤲Omiyn! \n\n https://t.me/Onxayat_kitoblar'
@@ -87,8 +89,6 @@ async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
         kun = hozir.day
         oy = oylar[hozir.strftime('%B')]
         yil = hozir.year
-        global counter
-        counter += 1
         gregorian_date = hozir
         hijri_date = convert.Gregorian(gregorian_date.year, gregorian_date.month, gregorian_date.day).to_hijri()
         salomlash = f"👋Assalomu alaykum va rahmatullohi va barakatuh \nKitob do`konimizning qadrli a`zolari \n📚📚📚Allox sizning bugungi kuningizni mutoalaga boy qilsin ..!!! \nOmiyn.\nBugun haftaning {hafta} kuni {kun}- {oy} {yil}-yil\nHijriy: {hijri_date.day} - {hijri_months[hijri_date.month - 1]} {hijri_date.year}-yil\n👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻\nBizning rasmiy manzilimiz: https://t.me/Onxayat_kitoblar"
