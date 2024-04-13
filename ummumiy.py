@@ -19,7 +19,6 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     salom = f'Videoni to`liq ko`ring {update.effective_user.first_name}'
     video = open('qollanma.mp4', 'rb')
     await update.message.reply_video(video=video, caption=salom)
-counter = 0
 async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
     hijri_months = [
     "Muharram", "Safar", "Rabi'ul-avval", "Rabi'ul-akhir",
@@ -54,8 +53,14 @@ async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
     hafta = hafta_kunlari[hozir.strftime('%A')]
     son = '@Onhayat_kitoblar'
     sanoq = 0
-    global counter
-    counter += 1
+    with open('counter.txt', 'r') as counte:
+        counter = int(counte.read())
+    counter +=1
+    with open('counter.txt', 'w') as yoz:
+        yoz.write(str(counter))
+    if counter >30:
+        with open('counter.txt', 'w') as yoz2:
+            yoz2.write('1')
     if hafta == 'Juma':
         sanoq += 1
         jumatext = 'Juma ayyomingiz muborak bo`lsin. Alloh bu kunda qiladigan ammalllaringini o`z dargohida qabul etsin\n🤲🤲🤲Omiyn! \n\n https://t.me/Onhayat_kitoblar'
@@ -103,17 +108,20 @@ async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
             izohtext = f"{izoh1}\n🖋🖋🖋{izoh2}\n\n📚📚📚{izoh4}\n\n👉{izoh3}\nBuyurtma qilish uchun https://t.me/Zakaz_murojatbot\n\nBizga qo`shiling va kitobxonlardan bo`ling https://t.me/Onhayat_kitoblar"
         with open('rasmlar/rasm{}.jpg'.format(counter), 'rb') as photo:
             await context.bot.send_photo(son, photo=photo, caption=izohtext)
-    if counter > 29:
-        counter = 0
-    return counter
 sanoq1 = 0
-sanoq2 = 0
 async def salok1(context: ContextTypes.DEFAULT_TYPE) -> None:
     son = '@Onhayat_kitoblar'
     global sanoq1
-    global sanoq2
     sanoq1 += 1
-    sanoq2 += 1
+    with open('sanoq2.txt', 'r') as counte:
+        sanoq2 = int(counte.read())
+    sanoq2 +=1
+    with open('sanoq2.txt', 'w') as yoz:
+        yoz.write(str(sanoq2))
+    if sanoq2 >30:
+        with open('sanoq2.txt', 'w') as yoz2:
+            yoz2.write('1')
+
     with open("hikmat/yozuv{}.txt".format(sanoq2), "r", encoding="utf-8") as file:
         yozuv = file.read()
     with open('hikmat/hikmat{}.jpg'.format(sanoq1), 'rb') as hikmat:
@@ -123,9 +131,6 @@ async def salok1(context: ContextTypes.DEFAULT_TYPE) -> None:
         sanoq1 = 0
         return sanoq1
 
-    if sanoq2 > 200:
-        sanoq2 = 0
-        return sanoq2
 tunsanoq = 0 
 async def salok2(context: ContextTypes.DEFAULT_TYPE) -> None:
     son = '@Onhayat_kitoblar'
