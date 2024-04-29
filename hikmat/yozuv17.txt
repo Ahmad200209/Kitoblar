@@ -1,3 +1,5 @@
 Odatlar - O`z ustida ishlash jarayonidagi ko`payib boruvchi foizlardir. Xar kuni bir foizdan yaxshilashib borish uzoq muddatda Katta ahamiyat kasb etadi.
 Ma`lum bo`sag`dan o`tmagunicha kichik o`zgarishlar aytarli natija keltirmaydi. Har qanday geometrik progressiyada eng katta yutuqlar eng ohirida keladi. Bu bizdan sabr talab etadi.
-Siz maqsadlaringiz darajasiga ko`tarilmaysiz, Balki tizimingiz darajasiga tushasiz. 
+Siz maqsadlaringiz darajasiga ko`tarilmaysiz, Balki tizimingiz darajasiga tushasiz.
+Atom Odatlar
+Muallif:Jeyms Klir 

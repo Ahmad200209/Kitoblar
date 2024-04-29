@@ -58,7 +58,7 @@ async def salok(context: ContextTypes.DEFAULT_TYPE) -> None:
     counter +=1
     with open('counter.txt', 'w') as yoz:
         yoz.write(str(counter))
-    if counter >30:
+    if counter >40:
         with open('counter.txt', 'w') as yoz2:
             yoz2.write('1')
     if hafta == 'Juma':
@@ -118,7 +118,7 @@ async def salok1(context: ContextTypes.DEFAULT_TYPE) -> None:
     sanoq2 +=1
     with open('sanoq2.txt', 'w') as yoz:
         yoz.write(str(sanoq2))
-    if sanoq2 >30:
+    if sanoq2 >40:
         with open('sanoq2.txt', 'w') as yoz2:
             yoz2.write('1')
 
